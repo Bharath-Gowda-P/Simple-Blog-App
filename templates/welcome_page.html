@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    WELCOME
+{% endblock title %}
+
+
+{% block body %}
+<div class="container-fluid mb-3 my-5"> 
+<main class="container my-4">
+    <div class="bg-light p-5 rounded">
+      <h1>Bharath Blogs</h1>
+      <p class="lead">This is a blog page created by Bharath. I have used Flask and Bootstrap for this and worked my ass off.</p>
+      <a class="btn btn-lg btn-success bg-gradient" href={{ url_for('login') }} role="button">Login &raquo;</a>
+      <a class="btn btn-lg btn-info bg-gradient" href={{ url_for('signup') }} role="button">Signup &raquo;</a>
+    </div>
+  </main>
+</div>
+{% endblock body %}

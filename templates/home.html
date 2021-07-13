@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    HOME
+{% endblock title %}
+
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-success bg-gradient">
+    <div class="container-fluid">
+      <a class="navbar-brand active " href={{ url_for('home') }}>Blogs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active mx-5" aria-current="page" href="/add">Add</a>
+          <a class="nav-link active mx-4" href={{ url_for('about') }}>About</a>
+          <a href={{ url_for('logout') }} class="nav-link active topnav-right mx-5">Logout</a>
+        </div>
+    </div>
+  </nav>
+
+{% for post in posts %}
+<div class="container my-3">
+  <h2>{{ post.title }}</h2>
+  {% if post.author %}
+    <small>Written by {{ post.author }}</small><br>
+  {% else %}
+    <small>Unknown</small>
+  {% endif %}
+  <br>
+  <p style="white-space:pre-wrap">{{ post.content }}</p>
+  <a href="/home/delete/{{post.id}}" class="btn btn-danger bg-gradient">Delete</a>
+  <a href="/home/edit/{{post.id}}" class="btn btn-primary bg-gradient mx-1">Edit</a>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+{% endfor %}
+
+{% endblock body %}

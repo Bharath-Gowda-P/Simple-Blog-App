@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block title %} SignUp {% endblock title %} {% block
+body %}
+<div class="mb-3 my-4 container">
+<form action="/signup" method="POST">
+  <div class="container mb-4">
+    <label class="form-label" for="mail">Email Address</label>
+    <input
+      type="email"
+      class="form-control container"
+      name="mail"
+      id="mail"
+    />
+    <div id="emailHelp" class="form-text container">
+      We'll never share your email with anyone else.
+    </div>
+  </div>
+  <div class="mb-4 container">
+    <label class="form-label">Username</label>
+    <input type="text" class="form-control container" id="username" name="username" />
+  </div>
+  <div class="mb-2 container">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control container" id="password" name="password" />
+  </div>
+  <div class="container bg-gradient mb-4">
+  <a href={{ url_for('login')}}>Already signed up? Login Here</a>
+</div>
+  <div class="mb-4 container">
+  <button type="submit" class="btn btn-info bg-gradient" value="POST">SignUp</button>
+  <a href={{ url_for('welcome') }} class="btn btn-danger bg-gradient mx-2">Cancel</a>
+</div>
+</form>
+</div>
+{% endblock body %}

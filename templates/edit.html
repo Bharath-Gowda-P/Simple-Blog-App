@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block title %} EDIT {% endblock title %} {% block
+body %}
+
+<div class="container my-1">
+  <h2 class="container mx-3">Edit The Blog:</h2>
+  <br />
+  <form action="/home/edit/{{post.id}}" method="POST">
+    <div class="mb-3 container">
+      <label class="container-fluid" for="title">Title</label>
+      <input
+        type="text"
+        class="form-control container-fluid"
+        name="title"
+        id="title"
+        value="{{ post.title }}"
+      />
+    </div>
+    <div class="mb-3 container">
+      <label for="author" class="form-label container-fluid">Author</label>
+      <input
+        type="text"
+        class="form-control container-fluid"
+        name="author"
+        id="author"
+        value="{{ post.author }}"
+      />
+    </div>
+    <div class="mb-5 container">
+      <label for="content" class="form-label container-fluid">Content</label>
+      <textarea
+        class="form-control container-fluid"
+        id="content"
+        name="content"
+        rows="6"
+      >
+{{ post.content }}</textarea
+      >
+    </div>
+    <div class="mb-3 container">
+      <button type="submit" class="btn btn-success bg-gradient" value="Save">
+        Post
+      </button>
+      <a href={{ url_for('home') }} class="btn btn-danger bg-gradient mx-1">Cancel</a>
+    </div>
+  </form>
+</div>
+
+{% endblock body %}
